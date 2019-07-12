@@ -1,5 +1,4 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script> -->
 ## 文本挖掘预处理之TF-IDF
 ### 文本向量化特征的不足
 在将文本分词并向量化后, 我们可以得到词汇表中每个词在各个文本中形成的词向量. </br>
