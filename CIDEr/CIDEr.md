@@ -28,7 +28,7 @@ corpus=["I come to China to travel",
 概括来讲, `IDF`反应了一个词在所有文本中出现的频率, 如果一个词在很多的文本中出现, 那么它的IDF值应该低, 比如上文中的`"to"`. 而反过来如果一个词在比较少的文本中出现, 那么它的`IDF`值应该高. 比如一些专业的名词如`"Machine Learning"`. 这样的词`IDF`值应该高. 一个极端的情况. 如果一个词在所有的文本中都出现, 那么它的`IDF`值应该为`0`. </br>
 
 上面是从定性上说明的IDF的作用, 那么如何对一个词的IDF进行定量分析呢? 这里直接给出一个词`x`的`IDF`的基本公式如下: </br>
-![](https://github.com/TalentBoy2333/blog/blob/master/images/1.png)
+![](https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/1.png)
 
 其中, `N`代表语料库中文本的总数, 而`N(x)`代表语料库中包含词`x`的文本总数。为什么`IDF`的基本公式应该是是上面这样的而不是像`N/N(x)`这样的形式呢? 这就涉及到信息论相关的一些知识了, 感兴趣的朋友建议阅读吴军博士的"数学之美"第11章. </br>
 
