@@ -29,6 +29,7 @@ corpus=["I come to China to travel",
 
 上面是从定性上说明的IDF的作用, 那么如何对一个词的IDF进行定量分析呢? 这里直接给出一个词`x`的`IDF`的基本公式如下: </br>
 ![](https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/1.png)
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/1.png" width = 50% height = 50% div align=center />
 
 其中, `N`代表语料库中文本的总数, 而`N(x)`代表语料库中包含词`x`的文本总数。为什么`IDF`的基本公式应该是是上面这样的而不是像`N/N(x)`这样的形式呢? 这就涉及到信息论相关的一些知识了, 感兴趣的朋友建议阅读吴军博士的"数学之美"第11章. </br>
 
