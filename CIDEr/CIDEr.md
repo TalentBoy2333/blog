@@ -74,14 +74,14 @@ corpus=["I come to China to travel",
 <img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/8.png" width = 50% height = 50% align=center />
 
 <img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/9.png" width = 100% height = 100% align=left />
-</br>
+</br></br>
 
 ### CIDEr
 n = [1, 2, 3, 4] 对应`n-gram`的n, 如`1-gram`, `2-gram`, `3-gram`, `4-gram`. </br>
 <img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/10.png" width = 50% height = 50% align=center />
 
 <img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/11.png" width = 50% height = 50% align=left />
-</br>
+</br></br>
 
 ## 参考文献
 [1]https://www.cnblogs.com/pinard/p/6693230.html</br>
