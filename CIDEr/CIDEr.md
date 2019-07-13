@@ -33,21 +33,21 @@ corpus=["I come to China to travel",
 其中, `N`代表语料库中文本的总数, 而`N(x)`代表语料库中包含词`x`的文本总数。为什么`IDF`的基本公式应该是是上面这样的而不是像`N/N(x)`这样的形式呢? 这就涉及到信息论相关的一些知识了, 感兴趣的朋友建议阅读吴军博士的"数学之美"第11章. </br>
 
 上面的`IDF`公式已经可以使用了, 但是在一些特殊的情况会有一些小问题, 比如某一个生僻词在语料库中没有, 这样我们的分母为`0`, `IDF`没有意义了. 所以常用的`IDF`我们需要做一些平滑, 使语料库中没有出现的词也可以得到一个合适的`IDF`值. 平滑的方法有很多种, 最常见的IDF平滑后的公式之一为: </br>
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/2.png" width = 25% height = 25% div align=center />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/2.png" width = 50% height = 50% div align=center />
 
 有了`IDF`的定义, 我们就可以计算某一个词的`TF-IDF`值了: </br>
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/3.png" width = 25% height = 25% div align=center />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/3.png" width = 100% height = 100% div align=center />
 
 其中`TF(x)`指词`x`在当前文本中的词频. </br>
 
 ## 余弦相似性
 余弦相似度, 又称为余弦相似性, 是通过计算两个向量的夹角余弦值来评估他们的相似度. 余弦相似度将向量根据坐标值, 绘制到向量空间中, 如最常见的二维空间. </br>
 
-两个向量间的余弦值可以通过使用欧几里得点积公式求出: 
+两个向量间的余弦值可以通过使用欧几里得点积公式求出: </br>
 <img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/4.png" width = 25% height = 25% div align=center />
 
 给定两个属性向量，A和B，其余弦相似性θ由点积和向量长度给出，如下所示: </br>
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/5.png" width = 25% height = 25% div align=center />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/5.png" width = 100% height = 100% div align=center />
 
 这里的`$A_i$`, `$B_i$`分别代表向量A和B的各分量. </br>
 
@@ -71,15 +71,17 @@ corpus=["I come to China to travel",
 
 ### TF-IDF
 下面对候选集$c_i$, 计算其`n−gram`的`TF-IDF weight`. </br>
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/8.png" width = 25% height = 25% div align=center />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/8.png" width = 100% height = 100% align=center />
 
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/9.png" width = 25% height = 25% div align=left />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/9.png" width = 100% height = 100% align=left />
+</br>
 
 ### CIDEr
-n = [1, 2, 3, 4] 对应`n-gram`的n, 如`1-gram`, `2-gram`, `3-gram`, `4-gram`. 
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/10.png" width = 25% height = 25% div align=center />
+n = [1, 2, 3, 4] 对应`n-gram`的n, 如`1-gram`, `2-gram`, `3-gram`, `4-gram`. </br>
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/10.png" width = 100% height = 100% align=center />
 
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/11.png" width = 25% height = 25% div align=left />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/11.png" width = 100% height = 100% align=left />
+</br>
 
 ## 参考文献
 [1]https://www.cnblogs.com/pinard/p/6693230.html</br>
