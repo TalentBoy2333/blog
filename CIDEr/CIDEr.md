@@ -28,40 +28,28 @@ corpus=["I come to China to travel",
 概括来讲, `IDF`反应了一个词在所有文本中出现的频率, 如果一个词在很多的文本中出现, 那么它的IDF值应该低, 比如上文中的`"to"`. 而反过来如果一个词在比较少的文本中出现, 那么它的`IDF`值应该高. 比如一些专业的名词如`"Machine Learning"`. 这样的词`IDF`值应该高. 一个极端的情况. 如果一个词在所有的文本中都出现, 那么它的`IDF`值应该为`0`. </br>
 
 上面是从定性上说明的IDF的作用, 那么如何对一个词的IDF进行定量分析呢? 这里直接给出一个词`x`的`IDF`的基本公式如下: </br>
-![](https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/1.png)
-<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/1.png" width = 50% height = 50% div align=center />
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/1.png" width = 25% height = 25% div align=center />
 
 其中, `N`代表语料库中文本的总数, 而`N(x)`代表语料库中包含词`x`的文本总数。为什么`IDF`的基本公式应该是是上面这样的而不是像`N/N(x)`这样的形式呢? 这就涉及到信息论相关的一些知识了, 感兴趣的朋友建议阅读吴军博士的"数学之美"第11章. </br>
 
 上面的`IDF`公式已经可以使用了, 但是在一些特殊的情况会有一些小问题, 比如某一个生僻词在语料库中没有, 这样我们的分母为`0`, `IDF`没有意义了. 所以常用的`IDF`我们需要做一些平滑, 使语料库中没有出现的词也可以得到一个合适的`IDF`值. 平滑的方法有很多种, 最常见的IDF平滑后的公式之一为: </br>
-$$ 
-IDF(x)=\log \frac{N+1}{N(x)+1}+1 
-$$
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/2.png" width = 25% height = 25% div align=center />
+
 有了`IDF`的定义, 我们就可以计算某一个词的`TF-IDF`值了: </br>
-$$ 
-TF-IDF(x)=TF(x)*IDF(x) 
-$$
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/3.png" width = 25% height = 25% div align=center />
+
 其中`TF(x)`指词`x`在当前文本中的词频. </br>
 
 ## 余弦相似性
 余弦相似度, 又称为余弦相似性, 是通过计算两个向量的夹角余弦值来评估他们的相似度. 余弦相似度将向量根据坐标值, 绘制到向量空间中, 如最常见的二维空间. </br>
 
 两个向量间的余弦值可以通过使用欧几里得点积公式求出: 
-$$ 
-\mathbf{a} \cdot \mathbf{b}=\|\mathbf{a}\|\|\mathbf{b}\| \cos \theta 
-$$
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/4.png" width = 25% height = 25% div align=center />
+
 给定两个属性向量，A和B，其余弦相似性θ由点积和向量长度给出，如下所示: </br>
-$$
-similarity=\cos (\theta)=\frac{A \cdot B}{\||A\|| || B \||}
-$$
-asdfg</br>
-$$
-\sum_{i}
-$$
-$$
-\frac{\sum_{i=1}^{n} A_{i} \times B_{i}}{\sqrt{\sum_{i=1}^{n}\left(A_{i}\right)^{2}} \times \sqrt{\sum_{i=1}^{n}\left(B_{i}\right)^{2}}}
-$$
-这里的`A_i`, `B_i`分别代表向量A和B的各分量. </br>
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/5.png" width = 25% height = 25% div align=center />
+
+这里的`$A_i$`, `$B_i$`分别代表向量A和B的各分量. </br>
 
 给出的相似性范围从`-1`到`1`, `-1`意味着两个向量指向的方向正好截然相反, `1`表示它们的指向是完全相同的, `0`通常表示它们之间是独立的, 而在这之间的值则表示中间的相似性或相异性. </br>
 
@@ -71,18 +59,27 @@ $$
 
 ## CIDEr算法
 ### 定义
-待测数据集规模为N.</br>
+待测数据集规模为N. </br>
 
-候选集(Candidates)$ C=\left\{c_{1}, c_{2}, \ldots, c_{N}\right\} $
-参照集(References)$ S_{i}=\left\{s_{i 1}, s_{i 2}, \dots, s_{i M}\right\} $
-，其中M表示参照集句子数量, i表示第i个图像.
+候选集(Candidates) </br>
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/6.png" width = 25% height = 25% div align=center />
 
-$$
-$$
-C I D E r_{n}\left(c_{i}, s_{i}\right)=\frac{1}{M} * \sum_{j=1}^{M} \frac{g^{n}\left(c_{i}\right) * g^{n}\left(s_{i j}\right)}{\left\|g^{n}\left(c_{i}\right)\right\| *\left\|g^{n}\left(s_{i j}\right)\right\|}
-$$
-$$
+参照集(References) </br>
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/7.png" width = 25% height = 25% div align=center />
 
+其中M表示参照集句子数量, i表示第i个图像. </br>
+
+### TF-IDF
+下面对候选集$c_i$, 计算其`n−gram`的`TF-IDF weight`. </br>
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/8.png" width = 25% height = 25% div align=center />
+
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/9.png" width = 25% height = 25% div align=left />
+
+### CIDEr
+n = [1, 2, 3, 4] 对应`n-gram`的n, 如`1-gram`, `2-gram`, `3-gram`, `4-gram`. 
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/10.png" width = 25% height = 25% div align=center />
+
+<img src="https://github.com/TalentBoy2333/blog/blob/master/CIDEr/images/11.png" width = 25% height = 25% div align=left />
 
 ## 参考文献
 [1]https://www.cnblogs.com/pinard/p/6693230.html</br>
